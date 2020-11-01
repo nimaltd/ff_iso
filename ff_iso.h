@@ -8,7 +8,7 @@
   Instagram:  http://instagram.com/github.NimaLTD
   Youtube:    https://www.youtube.com/channel/UCUhY7qY1klJm1d2kulr9ckw
   
-  Version:    Beta 0.1.0  
+  Version:    Beta 0.1.1  
 */
 
 

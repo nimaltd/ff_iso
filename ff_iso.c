@@ -258,7 +258,7 @@ void ff_task(void const * argument)
         ff_iso.func = FF_ISO_IDLE;
       break;      
       case FF_ISO_PUTS:
-        ff_iso.int32 = f_puts(ff_iso.path, ff_iso.fp);
+        ff_iso.int32 = f_puts(ff_iso.tbuff, ff_iso.fp);
         ff_iso.end = 1;
         ff_iso.func = FF_ISO_IDLE;
       break;     
