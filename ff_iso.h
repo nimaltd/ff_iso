@@ -1,17 +1,6 @@
 #ifndef _FF_ISO_H
 #define _FF_ISO_H
 
-
-/*
-  Author:     Nima Askari
-  WebSite:    http://www.github.com/NimaLTD
-  Instagram:  http://instagram.com/github.NimaLTD
-  Youtube:    https://www.youtube.com/channel/UCUhY7qY1klJm1d2kulr9ckw
-  
-  Version:    Beta 0.1.1  
-*/
-
-
 #include "ff.h"
 #include "cmsis_os.h"
 
@@ -56,7 +45,8 @@ typedef struct
 }ff_iso_t;
 
 //##############################################################################################################
-FRESULT ff_init(osPriority osPriority_);
+FRESULT ff_init(void);
+void    ff_loop(void);
 
 FRESULT ff_mount(FATFS* fs, const TCHAR* path, BYTE opt);			                            /* Mount/Unmount a logical drive */
 FRESULT ff_open(FIL* fp, const TCHAR* path, BYTE mode);				                            /* Open or create a file */
