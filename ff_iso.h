@@ -1,6 +1,22 @@
 #ifndef _FF_ISO_H
 #define _FF_ISO_H
 
+/*
+ *	Author:     Nima Askari
+ *	WebSite:    https://www.github.com/NimaLTD
+ *	Instagram:  https://www.instagram.com/github.NimaLTD
+ *	LinkedIn:   https://www.linkedin.com/in/NimaLTD
+ *	Youtube:    https://www.youtube.com/channel/UCUhY7qY1klJm1d2kulr9ckw
+ */
+
+/*
+ * Version:	1.0.0
+ *
+ * History:
+ *
+ * (1.0.0):	First release
+ */
+ 
 #include "ff.h"
 #include "cmsis_os.h"
 
@@ -13,6 +29,7 @@ typedef enum
   FF_ISO_READ,
   FF_ISO_WRITE,
   FF_ISO_PUTS,
+  FF_ISO_GETS,
   FF_ISO_OPENDIR,
   FF_ISO_CLOSEDIR,
   FF_ISO_READDIR,
@@ -54,6 +71,7 @@ FRESULT ff_close(FIL* fp);											                                          /
 FRESULT ff_read(FIL* fp, void* buff, UINT btr, UINT* br);			                            /* Read data from the file */
 FRESULT ff_write(FIL* fp, const void* buff, UINT btw, UINT* bw);	                        /* Write data to the file */
 int     ff_puts(const TCHAR* str, FIL* cp); 					                                    /* Put a string to the file */
+TCHAR*  ff_gets (TCHAR* buff, int len, FIL* fp);						                              /* Get a string from the file */
 FRESULT ff_opendir(DIR* dp, const TCHAR* path);		        				                        /* Open a directory */
 FRESULT ff_closedir(DIR* dp);										                                          /* Close an open directory */
 FRESULT ff_readdir(DIR* dp, FILINFO* fno);							                                  /* Read a directory item */

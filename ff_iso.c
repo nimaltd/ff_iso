@@ -69,7 +69,6 @@ FRESULT ff_read(FIL *fp, void *buff, UINT btr, UINT *br)
   osMutexRelease(ffMutexID);
   return res;
 }
-
 //##############################################################################################################
 FRESULT ff_write(FIL *fp, const void *buff, UINT btw, UINT *bw)
 {
@@ -101,6 +100,21 @@ int ff_puts(const TCHAR *str, FIL *cp)
   res = ff_iso.int32;
   osMutexRelease(ffMutexID);
   return res;
+}
+//##############################################################################################################
+TCHAR* ff_gets (TCHAR* buff, int len, FIL* fp)
+{
+  int res;
+  osMutexWait(ffMutexID, portMAX_DELAY);
+  ff_iso.end = 0;
+  ff_iso.fp = fp;
+  ff_iso.int32 = len;
+  ff_iso.buff = buff;
+  ff_iso.func = FF_ISO_GETS;
+  while (ff_iso.end == 0)
+    osDelay(1);
+  osMutexRelease(ffMutexID);
+  return ff_iso.tbuff;
 }
 //##############################################################################################################
 FRESULT ff_opendir(DIR *dp, const TCHAR *path)
@@ -258,6 +272,11 @@ void ff_loop(void)
     break;
   case FF_ISO_PUTS:
     ff_iso.int32 = f_puts(ff_iso.tbuff, ff_iso.fp);
+    ff_iso.end = 1;
+    ff_iso.func = FF_ISO_IDLE;
+    break;
+  case FF_ISO_GETS:
+    ff_iso.tbuff = f_gets(ff_iso.buff, ff_iso.int32, ff_iso.fp);
     ff_iso.end = 1;
     ff_iso.func = FF_ISO_IDLE;
     break;
