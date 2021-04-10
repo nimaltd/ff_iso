@@ -65,20 +65,20 @@ typedef struct
 FRESULT ff_init(void);
 void    ff_loop(void);
 
-FRESULT ff_mount(FATFS* fs, const TCHAR* path, BYTE opt);			                            /* Mount/Unmount a logical drive */
-FRESULT ff_open(FIL* fp, const TCHAR* path, BYTE mode);				                            /* Open or create a file */
-FRESULT ff_close(FIL* fp);											                                          /* Close an open file object */
-FRESULT ff_read(FIL* fp, void* buff, UINT btr, UINT* br);			                            /* Read data from the file */
-FRESULT ff_write(FIL* fp, const void* buff, UINT btw, UINT* bw);	                        /* Write data to the file */
-int     ff_puts(const TCHAR* str, FIL* cp); 					                                    /* Put a string to the file */
-TCHAR*  ff_gets (TCHAR* buff, int len, FIL* fp);						                              /* Get a string from the file */
-FRESULT ff_opendir(DIR* dp, const TCHAR* path);		        				                        /* Open a directory */
-FRESULT ff_closedir(DIR* dp);										                                          /* Close an open directory */
-FRESULT ff_readdir(DIR* dp, FILINFO* fno);							                                  /* Read a directory item */
-FRESULT ff_findfirst(DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);	    /* Find first file */
-FRESULT ff_findnext(DIR* dp, FILINFO* fno);							                                  /* Find next file */
-FRESULT ff_mkdir(const TCHAR* path);								                                      /* Create a sub directory */
-FRESULT ff_unlink(const TCHAR* path);								                                      /* Delete an existing file or directory */
-FRESULT ff_rename(const TCHAR* path_old, const TCHAR* path_new);	                        /* Rename/Move a file or directory */
+FRESULT ff_mount(FATFS* fs, const TCHAR* path, BYTE opt);                                 /* Mount/Unmount a logical drive */
+FRESULT ff_open(FIL* fp, const TCHAR* path, BYTE mode);                                   /* Open or create a file */
+FRESULT ff_close(FIL* fp);                                                                /* Close an open file object */
+FRESULT ff_read(FIL* fp, void* buff, UINT btr, UINT* br);                                 /* Read data from the file */
+FRESULT ff_write(FIL* fp, const void* buff, UINT btw, UINT* bw);                          /* Write data to the file */
+int     ff_puts(const TCHAR* str, FIL* cp);                                               /* Put a string to the file */
+TCHAR*  ff_gets(TCHAR* buff, int len, FIL* fp);                                           /* Get a string from the file */
+FRESULT ff_opendir(DIR* dp, const TCHAR* path);                                           /* Open a directory */
+FRESULT ff_closedir(DIR* dp);                                                             /* Close an open directory */
+FRESULT ff_readdir(DIR* dp, FILINFO* fno);                                                /* Read a directory item */
+FRESULT ff_findfirst(DIR* dp, FILINFO* fno, const TCHAR* path, const TCHAR* pattern);     /* Find first file */
+FRESULT ff_findnext(DIR* dp, FILINFO* fno);                                               /* Find next file */
+FRESULT ff_mkdir(const TCHAR* path);                                                      /* Create a sub directory */
+FRESULT ff_unlink(const TCHAR* path);                                                     /* Delete an existing file or directory */
+FRESULT ff_rename(const TCHAR* path_old, const TCHAR* path_new);                          /* Rename/Move a file or directory */
 
 #endif
