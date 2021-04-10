@@ -10,10 +10,11 @@
  */
 
 /*
- * Version:	1.0.0
+ * Version:	1.0.1
  *
  * History:
  *
+ * (1.0.1): Add ff_size() 
  * (1.0.0):	First release
  */
  
@@ -80,5 +81,6 @@ FRESULT ff_findnext(DIR* dp, FILINFO* fno);                                     
 FRESULT ff_mkdir(const TCHAR* path);                                                      /* Create a sub directory */
 FRESULT ff_unlink(const TCHAR* path);                                                     /* Delete an existing file or directory */
 FRESULT ff_rename(const TCHAR* path_old, const TCHAR* path_new);                          /* Rename/Move a file or directory */
+#define ff_size(fp) f_size(fp)
 
 #endif
